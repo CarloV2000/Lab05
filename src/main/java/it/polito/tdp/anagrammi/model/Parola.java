@@ -1,7 +1,5 @@
 package it.polito.tdp.anagrammi.model;
 
-import java.util.Objects;
-
 public class Parola {
 
 	private String nome;
@@ -9,7 +7,7 @@ public class Parola {
 	
 	public Parola(String nome, boolean corretta) {
 		this.nome = nome;
-		this.corretta = false;
+		this.corretta = corretta;
 	}
 
 	public String getNome() {
@@ -22,6 +20,11 @@ public class Parola {
 
 	public void setCorretta(boolean corretta) {
 		this.corretta = corretta;
+	}
+
+	@Override
+	public String toString() {
+		return "Parola [nome=" + nome + ", corretta=" + corretta + "]";
 	}
 	
 	

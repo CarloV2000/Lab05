@@ -45,24 +45,26 @@ public class Model {
 	}
 	/**
 	 * questo metodo crea le parole partendo dalle stringhe nome
-	 * @param a e una lista di stringhe corrispondenti agli attributi nome da attribuire alle parole rappresentanti gli anagrammi
+	 * @param anagrammi e una lista di stringhe corrispondenti agli attributi nome da attribuire alle parole rappresentanti gli anagrammi
 	 * @return una lista di parole rappresentanti gli anagrammi con un attrib true se corretti e false se errati
 	 */
-	public List<Parola> creaParoleDaAnagrammi(List<String>anagrammiString) {
+	public List<Parola> creaParoleDaAnagrammi(List<String>anagrammi) {
 		
 		List<Parola>paroleAnagrammi = new ArrayList<Parola>();
 		
-		for(String x : anagrammiString) {
+		for(String x : anagrammi) {
 			
-				Parola p = new Parola(x, this.anagrammiCorretti(x));
-				paroleAnagrammi.add(p);
+			boolean corr = this.anagrammiCorretti(x);
+			Parola p = new Parola(x, corr);
+			paroleAnagrammi.add(p);
 		}
+		
 		return paroleAnagrammi;
 	}
 	
 	public boolean anagrammiCorretti(String s) {
 		boolean a = false;
-			if(this.stringheDizionario.contains(s.strip())) {
+			if(this.stringheDizionario.contains(s.strip().toLowerCase())) {
 				a = true;
 			}
 		return a;
